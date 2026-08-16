@@ -1,0 +1,15 @@
+// layout/_header.scss
+@use "../abstracts" as *;
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: $max-content-width;
+  margin-inline: auto;
+  padding: spacer("md");
+
+  @include respond-to("md") {
+    padding-block: spacer("lg");
+  }
+}

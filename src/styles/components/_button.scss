@@ -1,0 +1,18 @@
+// components/_button.scss
+@use "../abstracts" as *;
+
+.button {
+  display: inline-block;
+  padding: spacer("sm") spacer("md");
+  border: none;
+  border-radius: $border-radius-base;
+  background-color: $color-primary;
+  color: white;
+  font-size: $font-size-base;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-primary-light;
+  }
+}

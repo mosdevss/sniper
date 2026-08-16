@@ -1,0 +1,25 @@
+// abstracts/_functions.scss
+//
+// Pure Sass functions. Built-in Sass modules (like sass:map) are loaded
+// with @use here, same as any other module.
+@use "sass:map";
+@use "sass:math";
+@use "variables" as v;
+
+/// Look up a spacing value by name from $spacers.
+/// @param {String} $key - one of the keys defined in $spacers
+/// @return {Number} the spacing value, in rem
+@function spacer($key) {
+  @if not map.has-key(v.$spacers, $key) {
+    @error "Unknown spacer `#{$key}`. Available keys: #{map.keys(v.$spacers)}";
+  }
+
+  @return map.get(v.$spacers, $key);
+}
+
+/// Convert a pixel value to rem, assuming a 16px root font size.
+/// @param {Number} $px - a unitless or px number, e.g. 24 or 24px
+/// @return {Number} the equivalent value in rem
+@function rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}

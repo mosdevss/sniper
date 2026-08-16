@@ -1,0 +1,7 @@
+// pages/_home.scss
+@use "../abstracts" as *;
+
+.home-hero {
+  padding-block: spacer("xl");
+  text-align: center;
+}

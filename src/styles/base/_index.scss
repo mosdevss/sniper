@@ -1,0 +1,6 @@
+// base/_index.scss
+//
+// The base layer applies styles to bare HTML elements: resets, typography,
+// and any other project-wide defaults. No classes, no components.
+@forward "reset";
+@forward "typography";

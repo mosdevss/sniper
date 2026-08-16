@@ -1,0 +1,52 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the
+# run in-progress and latest queued. Do NOT cancel in-progress runs, since
+# we want a production deployment that's already running to finish.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository
+        uses: actions/checkout@v7
+      - name: Install pnpm and Node.js
+        # pnpm/setup is pnpm's own successor to pnpm/action-setup, for
+        # pnpm v11+. It installs pnpm AND the Node runtime in one step
+        # (replacing actions/setup-node) and runs `pnpm install`
+        # automatically since this repo has a package.json.
+        uses: pnpm/setup@v1
+        with:
+          version: 11
+          runtime: node@24
+          cache: true
+      - name: Build
+        run: pnpm build
+      - name: Upload build output
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,6 @@
+// layout/_index.scss
+//
+// Major structural, page-wide pieces: header, footer, grid, nav, sidebar.
+// Not reusable UI widgets (those belong in components/).
+@forward "header";
+@forward "footer";

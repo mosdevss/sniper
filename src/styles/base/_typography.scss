@@ -1,0 +1,33 @@
+// base/_typography.scss
+//
+// Any partial that needs a variable, function, or mixin from the abstracts
+// layer loads it the same way: @use '<path-to-abstracts>' as *;
+// The "as *" drops the namespace so $color-text, spacer(), etc. can be
+// used directly instead of abstracts.$color-text.
+@use "../abstracts" as *;
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-text;
+  background-color: $color-background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+a {
+  color: $color-primary;
+
+  &:hover {
+    color: $color-primary-light;
+  }
+}

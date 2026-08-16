@@ -1,0 +1,34 @@
+// styles/styles.scss
+//
+// Entry point for the whole stylesheet. This is imported exactly once,
+// in src/main.tsx — everything else is reached through it.
+//
+// Each line below resolves to that folder's _index.scss (Sass looks for
+// an _index file automatically when you @use a directory). @use is used
+// here rather than @forward because this file is the compiled output
+// itself, not something another file will load — nothing forwards
+// further downstream from here.
+//
+// Order matters: it's the cascade order of the compiled CSS.
+
+// 1. Abstracts — variables, functions, mixins. No CSS output on its own.
+@use "abstracts";
+
+// 2. Vendors — third-party overrides, loaded before your own rules.
+@use "vendors";
+
+// 3. Base — element resets and defaults.
+@use "base";
+
+// 4. Layout — page-wide structural pieces (header, footer, grid).
+@use "layout";
+
+// 5. Components — reusable UI pieces.
+@use "components";
+
+// 6. Pages — page/route-specific overrides.
+@use "pages";
+
+// 7. Themes — optional alternate visual themes, loaded last so they can
+//    override anything above.
+@use "themes";

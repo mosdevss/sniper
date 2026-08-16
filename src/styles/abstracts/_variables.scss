@@ -1,0 +1,42 @@
+// abstracts/_variables.scss
+//
+// Global design tokens. Nothing in here compiles to CSS by itself —
+// it only becomes output once another partial uses these values.
+
+// Color
+$color-primary: #4f46e5;
+$color-primary-light: #818cf8;
+$color-text: #1f2937;
+$color-background: #ffffff;
+$color-border: #e5e7eb;
+
+// Typography
+$font-family-base:
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+
+// Spacing scale, exposed as a map so mixins/functions can loop over it
+$spacers: (
+  "xs": 0.25rem,
+  "sm": 0.5rem,
+  "md": 1rem,
+  "lg": 1.5rem,
+  "xl": 2.5rem,
+);
+
+// Breakpoints, small to large, used by the respond-to() mixin
+$breakpoints: (
+  "sm": 30em,
+  // ~480px
+  "md": 48em,
+  // ~768px
+  "lg": 64em, // ~1024px
+);
+
+// Layout
+$max-content-width: 72rem;
+$border-radius-base: 0.5rem;

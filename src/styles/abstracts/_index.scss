@@ -1,0 +1,10 @@
+// abstracts/_index.scss
+//
+// The abstracts layer holds Sass tools only — variables, functions, mixins.
+// It must never output a single line of real CSS on its own.
+//
+// @forward re-exports each partial so the rest of the project can reach all
+// of them through one path: @use '../abstracts' as *;
+@forward "variables";
+@forward "functions";
+@forward "mixins";

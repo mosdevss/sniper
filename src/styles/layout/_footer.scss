@@ -1,0 +1,11 @@
+// layout/_footer.scss
+@use "../abstracts" as *;
+
+.site-footer {
+  max-width: $max-content-width;
+  margin-inline: auto;
+  padding: spacer("md");
+  border-top: 1px solid $color-border;
+  font-size: 0.875rem;
+  color: $color-text;
+}
