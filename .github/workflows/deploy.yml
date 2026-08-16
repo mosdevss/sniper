@@ -38,16 +38,10 @@ jobs:
       - name: Build (prerendered static output)
         run: pnpm build
 
-      - name: Generate 404.html from the prerendered /404 route
-        run: node scripts/generate-404.mjs
-
-      - name: Add .nojekyll
-        run: touch dist/client/.nojekyll
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: dist/client
+          path: dist/
 
   deploy:
     needs: build
